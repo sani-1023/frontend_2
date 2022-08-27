@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/Metadata";
 import { Typography } from "@material-ui/core";
 
+import { useNavigate } from "react-router-dom";
 import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import axios from "axios";
+import CartNav from "../Cart/allCartNav"
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -39,21 +41,17 @@ const Payment = () => {
     productId: obj.product,
     productName: obj.name,
     quantity: obj.quantity,
-
   }));
 
- 
-
   const transactionInfo = {
-    bankAccount:bankAccount,
-    totalAmount:totalPrice,
-    secretKey:secretKey,
-    userId:user._id,
-    order:order
-  }
+    bankAccount: bankAccount,
+    totalAmount: totalPrice,
+    secretKey: secretKey,
+    userId: user._id,
+    order: order,
+  };
 
- console.log(transactionInfo)
-  
+  console.log(transactionInfo);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -61,56 +59,58 @@ const Payment = () => {
     // const { bloodGroup, bagOfBlood, location, contact } = post;
     // console.log(post);
 
-    axios.post(`api/v1/usertransaction`, transactionInfo).then(async(res) => {
-      alert("Order is confirmed...Payment will be deduced soon");
-      navigate("/")
-
-    }).catch((e) => {
-      alert(e.response.data.message);
-  });
+    axios
+      .post(`api/v1/usertransaction`, transactionInfo)
+      .then(async (res) => {
+        alert("Order is confirmed...Payment will be deduced soon");
+        navigate("/");
+      })
+      .catch((e) => {
+        alert(e.response.data.message);
+      });
   };
 
   return (
     <>
-    <CartNav/>
-    
-    <Fragment>
-      <MetaData title="Payment" />
-      <CheckoutSteps activeStep={2} />
-      <div className="paymentContainer">
-        <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-          <Typography>Card Info</Typography>
-          <div>
-            <CreditCardIcon />
-            <input
-              className="paymentInput"
-              placeholder="Bank-account"
-              onChange={(e) => setBankAccount(e.target.value)}
-            />
-          </div>
-          <div>
-            <EventIcon />
-            <input className="paymentInput" placeholder="Date" />
-          </div>
-          <div>
-            <VpnKeyIcon />
-            <input
-              className="paymentInput"
-              placeholder="Secret key"
-              type="password"
-              onChange={(e) => setSecretKey(e.target.value)}
-            />
-          </div>
+      <CartNav />
 
-          <input
-            type="submit"
-            value={`Pay - ${totalPrice}/=`}
-            ref={payBtn}
-            className="paymentFormBtn"
-          />
-        </form>
-      </div>
-    </Fragment>
+      <Fragment>
+        <MetaData title="Payment" />
+        <CheckoutSteps activeStep={2} />
+        <div className="paymentContainer">
+          <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
+            <Typography>Card Info</Typography>
+            <div>
+              <CreditCardIcon />
+              <input
+                className="paymentInput"
+                placeholder="Bank-account"
+                onChange={(e) => setBankAccount(e.target.value)}
+              />
+            </div>
+            <div>
+              <EventIcon />
+              <input className="paymentInput" placeholder="Date" />
+            </div>
+            <div>
+              <VpnKeyIcon />
+              <input
+                className="paymentInput"
+                placeholder="Secret key"
+                type="password"
+                onChange={(e) => setSecretKey(e.target.value)}
+              />
+            </div>
+
+            <input
+              type="submit"
+              value={`Pay - ${totalPrice}/=`}
+              ref={payBtn}
+              className="paymentFormBtn"
+            />
+          </form>
+        </div>
+      </Fragment>
     </>
   );
 };

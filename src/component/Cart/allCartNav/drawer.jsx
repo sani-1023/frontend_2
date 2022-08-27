@@ -39,7 +39,7 @@ const DrawerComponent = (props) => {
     >
       
       <List style={{backgroundColor:"#b6f5ff"}}>
-           <h1 style={{fontFamily:"italic" ,marginLeft:"1rem"}}>Ecommarce</h1>
+           <h1 style={{fontFamily:"italic" ,marginLeft:"1rem"}}>Ecommerce 🛍</h1>
            <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
             <ListItem button  onClick={()=> navigate('/')}>
             <ListItemIcon>
@@ -50,7 +50,7 @@ const DrawerComponent = (props) => {
            </div>
           
            <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-            <ListItem button  onClick={()=> navigate('/')}>
+            <ListItem button  onClick={()=> navigate('/profile')}>
             <ListItemIcon>
               <AccountCircleIcon /> 
             </ListItemIcon>
