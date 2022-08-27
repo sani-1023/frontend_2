@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useRef } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector, useDispatch } from "react-redux";
 import MetaData from "../layout/Metadata";
@@ -8,21 +8,20 @@ import "./Payment.css";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
+import axios from "axios";
 
 const Payment = () => {
+  const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
 
-  const dispatch = useDispatch();
+  console.log(orderInfo);
 
   const payBtn = useRef(null);
+
  
 
   const submitHandler = async (e) => {
     e.preventDefault();
-
-   
   };
-
-  
 
   return (
     <Fragment>

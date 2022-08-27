@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState, useEffect } from "react";
 import CheckoutSteps from "../Cart/CheckoutSteps";
 import { useSelector } from "react-redux";
 import MetaData from "../../component/layout/Metadata";
@@ -6,11 +6,23 @@ import "./ConfirmOrder.css";
 import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
-
-const ConfirmOrder = ({ history }) => {
+const ConfirmOrder = () => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+
+  const [user, setUser] = useState({});
+
+  const navigate = useNavigate();
+
+
+  useEffect(() => {
+    axios.get(`api/v1/me`).then((res) => {
+      setUser(res.data.user);
+
+      // console.log(user)
+    });
+  }, []);
 
   console.log(user);
 
@@ -25,9 +37,9 @@ const ConfirmOrder = ({ history }) => {
 
   const totalPrice = subtotal + tax + shippingCharges;
 
-  //const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
+  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
 
-  const address = "demo1";
+  //const address = "demo1";
   const proceedToPayment = () => {
     const data = {
       subtotal,
@@ -36,9 +48,9 @@ const ConfirmOrder = ({ history }) => {
       totalPrice,
     };
 
-    //sessionStorage.setItem("orderInfo", JSON.stringify(data));
+    sessionStorage.setItem("orderInfo", JSON.stringify(data));
 
-    //history.push("/process/payment");
+    navigate("/payment");
   };
 
   return (
@@ -52,11 +64,11 @@ const ConfirmOrder = ({ history }) => {
             <div className="confirmshippingAreaBox">
               <div>
                 <p>Name:</p>
-                <span>demo_name</span>
+                <span>{user.name}</span>
               </div>
               <div>
                 <p>Phone:</p>
-                <span>demo_phone</span>
+                <span>{user.phone}</span>
               </div>
               <div>
                 <p>Address:</p>
