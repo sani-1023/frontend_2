@@ -12,8 +12,12 @@ import axios from "axios";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
+  const productInfo = JSON.parse(localStorage.getItem("cartItems"));
 
-  console.log(orderInfo);
+  const totalPrice = orderInfo.totalPrice;
+
+  console.log("hi",productInfo);
+  console.log("hi",orderInfo);
 
   const payBtn = useRef(null);
 
@@ -21,6 +25,9 @@ const Payment = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
+
+
+
   };
 
   return (
@@ -32,20 +39,20 @@ const Payment = () => {
           <Typography>Card Info</Typography>
           <div>
             <CreditCardIcon />
-            <input className="paymentInput" />
+            <input className="paymentInput" placeholder="Bank-account"/>
           </div>
           <div>
             <EventIcon />
-            <input className="paymentInput" />
+            <input className="paymentInput" placeholder="Date" />
           </div>
           <div>
             <VpnKeyIcon />
-            <input className="paymentInput" />
+            <input className="paymentInput" placeholder="Secret key" type = "password" />
           </div>
 
           <input
             type="submit"
-            value={`Pay - demo_price/=`}
+            value={`Pay - ${totalPrice}/=`}
             ref={payBtn}
             className="paymentFormBtn"
           />
