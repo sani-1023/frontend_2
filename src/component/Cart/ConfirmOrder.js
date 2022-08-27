@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import CartNav from "../Cart/allCartNav";
 
 const ConfirmOrder = () => {
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
@@ -54,7 +55,10 @@ const ConfirmOrder = () => {
   };
 
   return (
+    <>
+    <CartNav/>
     <Fragment>
+      
       <MetaData title="Confirm Order" />
       <CheckoutSteps activeStep={1} />
       <div className="confirmOrderPage">
@@ -126,6 +130,7 @@ const ConfirmOrder = () => {
         </div>
       </div>
     </Fragment>
+    </>
   );
 };
 

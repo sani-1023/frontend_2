@@ -13,6 +13,8 @@ import PhoneIcon from "@material-ui/icons/Phone";
 import TransferWithinAStationIcon from "@material-ui/icons/TransferWithinAStation";
 import { Country, State } from "country-state-city";
 import { useNavigate } from "react-router-dom";
+import CartNav from "../Cart/allCartNav";
+
 
 const Shipping = () => {
   const dispatch = useDispatch();
@@ -43,6 +45,9 @@ const Shipping = () => {
   };
 
   return (
+    <>
+    <CartNav/>
+   
     <Fragment>
       <MetaData title="Shipping Details" />
       <CheckoutSteps activeStep={0} />
@@ -147,6 +152,7 @@ const Shipping = () => {
         </div>
       </div>
     </Fragment>
+    </>
   );
 };
 

@@ -3,6 +3,7 @@ import "./profile.css";
 import { useSelector, useDispatch } from "react-redux";
 import axios from "axios";
 import profile  from "../../images/profile.png"
+import ProfileNavBar from "../User/ProfileNav";
 
 
 const Profile = () => {
@@ -18,6 +19,9 @@ const Profile = () => {
   }, []);
 
   return (
+
+    <>
+    <ProfileNavBar/>
     <div className="main">
       <div className="container bootstrap snippets bootdey">
         <div className="row">
@@ -108,6 +112,7 @@ const Profile = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addItemsToCart } from "../../actions/cartAction";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import CartNav from "../Cart/allCartNav";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,8 @@ const Cart = () => {
 
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+      <CartNav/>
       <Fragment>
         {cartItems.length === 0 ? (
           <div className="emptyCart">
