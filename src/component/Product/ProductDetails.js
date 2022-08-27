@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect,useState } from "react";
+import {useNavigate}  from "react-router-dom";
 import Carousel from "react-material-ui-carousel";
 import "./ProductDetails.css";
 import { useSelector, useDispatch } from "react-redux";
@@ -9,8 +10,11 @@ import ReactStars from "react-rating-stars-component";
 import Header from "../../component/layout/Header/Header";
 import Footer from "../../component/layout/Footer/Footer.js";
 import {addItemsToCart} from "../../actions/cartAction"
+import ProductNav from "../Product/productNav";
+
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
   /////match.params.id doesnot work
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -66,12 +70,15 @@ const ProductDetails = () => {
 const addCart = ()=>{
   dispatch(addItemsToCart(id,quantity));
   alert("Item has been added to cart")
+  navigate("/cart");
+  
 }
 
 
   return (
     <>
-    <Header/>
+   {/* <Header/> */}
+    <ProductNav/>
       <Fragment>
       <div className="ProductDetails">
         <div>

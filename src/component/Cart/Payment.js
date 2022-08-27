@@ -9,7 +9,6 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import EventIcon from "@material-ui/icons/Event";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const Payment = () => {
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
@@ -72,6 +71,9 @@ const Payment = () => {
   };
 
   return (
+    <>
+    <CartNav/>
+    
     <Fragment>
       <MetaData title="Payment" />
       <CheckoutSteps activeStep={2} />
@@ -109,6 +111,7 @@ const Payment = () => {
         </form>
       </div>
     </Fragment>
+    </>
   );
 };
 

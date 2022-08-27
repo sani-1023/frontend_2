@@ -5,12 +5,15 @@ import image from "../../images/macbook.jpg";
 import { removeItemsFromCart } from "../../actions/cartAction";
 import { useDispatch, useSelector } from "react-redux";
 
+
 const CartItemCard = ({ item }) => {
   const dispatch = useDispatch();
   const remove = (id) => {
     dispatch(removeItemsFromCart(id));
   };
   return (
+    
+    
     <div className="CartItemCard">
       <img src={image} alt="ssa" />
       <div>
