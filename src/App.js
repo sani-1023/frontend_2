@@ -12,6 +12,7 @@ import Cart  from "./component/Cart/Cart"
 import Profile from "./component/User/profile"
 import Shipping from "./component/Cart/Shipping"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
+import Image from "./component/User/image";
 
 import Payment from "./component/Cart/Payment.js"
 import Admin from "./component/Admin/Admin"
