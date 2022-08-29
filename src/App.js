@@ -12,9 +12,12 @@ import Cart  from "./component/Cart/Cart"
 import Profile from "./component/User/profile"
 import Shipping from "./component/Cart/Shipping"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
+
 import Payment from "./component/Cart/Payment.js"
 import Admin from "./component/Admin/Admin"
 import Supplier from "./component/Supplier/Supplier";
+
+
 
 
 function App() {
@@ -34,6 +37,7 @@ function App() {
       <Routes>
        
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/image" element={<Image />} />
         <Route exact path="/product/:id" element={<ProductDetails />} />
         <Route exact path="/login" element={<LogInSignUp />} />
         <Route exact path="/cart" element={<Cart />} />

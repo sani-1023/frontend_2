@@ -445,3 +445,9 @@ ul.summary-list > li:last-child  {
   .container {
     padding: 2px 16px;
   }
+
+  .profile_pic{
+    border-radius: 71%;
+    height: 17rem;
+    width: 17rem;
+  }

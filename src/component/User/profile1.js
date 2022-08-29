@@ -44,8 +44,8 @@ const Profile = () => {
               <button>Add to Cart</button>
               <button>Wishlist</button>
             </div>
-          </div>
-        </div> 
+          </div>    
+        </div>  
       
       </>
   );
