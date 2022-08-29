@@ -13,6 +13,8 @@ import Profile from "./component/User/profile"
 import Shipping from "./component/Cart/Shipping"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
 import Payment from "./component/Cart/Payment.js"
+import Admin from "./component/Admin/Admin"
+import Supplier from "./component/Supplier/Supplier";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
         <Route exact path="/shipping" element={<Shipping />} />
         <Route exact path="/confirmOrder" element={<ConfirmOrder />} />
         <Route exact path="/payment" element={<Payment />} />
+        <Route exact path="/admin" element={<Admin/>} />
+        <Route exact path="/supplier" element={<Supplier/>} />
 
 
       </Routes>
