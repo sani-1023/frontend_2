@@ -14,19 +14,19 @@ const Profile = () => {
 	const [file, setFile] = useState(null);
 
 	const userBackend = {
-		userinfo: ''
+		userinfo: '630625fd6bb34ae62662c024'
 	};
 
 	const handleFileChange = (event) => {
 		setFile(event.target.files);
-		console.log(file);
+		//console.log(file);
 	};
 
 	const handleSubmit = (event) => {
 		event.preventDefault();
 		const data = new FormData();
 		data.append('file', file[0]);
-		data.append('id',user._id)
+		data.append('id',"630625fd6bb34ae62662c024")
 		console.log(data);
 		axios.post('http://localhost:4001/upload', data).then((res) => {
 			console.log(res.statusText);
@@ -41,12 +41,12 @@ const Profile = () => {
 			//console.log(user)
 		});
 		//console.log("hi",  user._id)
-	    userBackend.userinfo = user._id;
-		axios
-			.post('http://localhost:4001/getImg', userBackend)
-			.then((res) => setData(res.data))
-			.catch((err) => console.log(err, 'it has an error'));
-	},[user]);
+	    // userBackend.userinfo = user._id;
+		// axios
+		// 	.post('http://localhost:4001/getImg', userBackend)
+		// 	.then((res) => setData(res.data))
+		// 	.catch((err) => console.log(err, 'it has an error'));
+	},[]);
 
 	//console.log("single data",data[0])
 
@@ -84,6 +84,7 @@ const Profile = () => {
 										return (
 											<img
 												className='profile_pic'
+												alt=''
 												src={`data:image/png;base64,${base64String}`}
 											/>
 										);
@@ -156,8 +157,8 @@ const Profile = () => {
 					</div>
 				</div>
 				<div className='your-order'>your recent orders</div>
-				<div class='card'>
-					<div class='container'>
+				<div className='card'>
+					<div className='container'>
 						<h4>
 							<b>Order Id:</b>
 							<b> lnsdhlknldknlks</b>

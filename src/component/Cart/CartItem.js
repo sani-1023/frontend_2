@@ -15,7 +15,7 @@ const CartItemCard = ({ item }) => {
     
     
     <div className="CartItemCard">
-      <img src={image} alt="ssa" />
+      <img src={image} alt="" />
       <div>
         <Link to={`/product/${item.product}`}>{item.name}</Link>
         <span>{`Price: ${item.price}/=`}</span>

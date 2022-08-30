@@ -30,7 +30,7 @@ const Supplier = () => {
         <div className="cartPage">
           {orderItem &&
             orderItem.map((item, key) => (
-              <div className="cartContainer" key={item._id}>
+              <div className="check" key={item._id}>
                 <OrderItem item={item} />
               </div>
             ))}

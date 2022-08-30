@@ -1,10 +1,7 @@
 .CartItemCard {
-    display: flex;
-    padding: 1vmax;
-    height: 8vmax;
-    align-items: flex-start;
-    box-sizing: border-box;
-    margin:3rem
+  
+  margin:3rem,
+    
   }
   .CartItemCard > img {
     width: 5vmax;
@@ -35,6 +32,11 @@
   .CartItemCard > div > h1 {
     color: rgba(245, 44, 9, 0.877);
     cursor: pointer;
+  }
+
+
+  .details{
+    margin: 1rem;
   }
   
   

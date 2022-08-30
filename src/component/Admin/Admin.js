@@ -30,7 +30,7 @@ const Admin = () => {
         <div className="cartPage">
           {orderItem &&
             orderItem.map((item, key) => (
-              <div className="cartContainer" key={item._id}>
+              <div key={item._id} className="check">
                 <OrderItem item={item} />
               </div>
             ))}
