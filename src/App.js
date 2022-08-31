@@ -13,6 +13,7 @@ import Profile from "./component/User/profile"
 import Shipping from "./component/Cart/Shipping"
 import ConfirmOrder from "./component/Cart/ConfirmOrder.js"
 import Image from "./component/User/image";
+import Bank from "./component/Bank/Bank"
 
 import Payment from "./component/Cart/Payment.js"
 import Admin from "./component/Admin/Admin"
@@ -48,6 +49,8 @@ function App() {
         <Route exact path="/payment" element={<Payment />} />
         <Route exact path="/admin" element={<Admin/>} />
         <Route exact path="/supplier" element={<Supplier/>} />
+        <Route exact path="/bankinfo" element={<Bank/>} />
+ 
 
 
       </Routes>
