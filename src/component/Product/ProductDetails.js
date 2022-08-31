@@ -79,7 +79,7 @@ const addCart = ()=>{
     <>
    {/* <Header/> */}
     <ProductNav/>
-      <Fragment>
+    <Fragment>
       <div className="ProductDetails">
         <div>
           <img className="CarouselImage" src={image} alt="image111" />
@@ -99,7 +99,7 @@ const addCart = ()=>{
             <h2>{product.name}</h2>
             <p >Product # {product._id}</p>
           </div>
-       
+         
           <div className="detailsBlock-3">
             <h1>{`${product.price}/=`}</h1>
             <div className="detailsBlock-3-1">
@@ -122,6 +122,8 @@ const addCart = ()=>{
           <div className="detailsBlock-4">
             Description : <p>{product.description}</p>
           </div>
+
+          <button className="submitReview">Submit Review</button>
         </div>
       </div>
     </Fragment>
