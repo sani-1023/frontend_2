@@ -7,6 +7,7 @@ import { getProduct } from "../../actions/productActions";
 import { useSelector, useDispatch } from "react-redux";
 import Header from "../../component/layout/Header/Header";
 import Footer from "../../component/layout/Footer/Footer.js";
+// import image from "../../images/e-commerce_bg.png"
 
 // const product = {
 //   name: "MacBook",
@@ -25,12 +26,10 @@ const Home = () => {
 
   return (
     <>
-      <Header />
       <Fragment>
         <MetaData title="E-commerce" />
-        <div className="banner">
-          <h1>Welcome to Ecommerce</h1>
-          <p>Find your desired products below</p>
+        <div className="banner" >
+          <h1 style= {{color:"black",fontSize:"xx-large"}}>Find your desired products below</h1>
 
           <a href="#container">
             <button className="button-29">

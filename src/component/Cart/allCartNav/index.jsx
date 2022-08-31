@@ -12,7 +12,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="App">
+    <div className="">
       <ToolbarComponent openDrawerHandler={openDrawer} />
       <DrawerComponent open={isDrawerOpen} toggleDrawerHandler={toggleDrawer} />
     </div>
