@@ -481,6 +481,51 @@ ul.summary-list > li:last-child {
 
 
 
+
+
+
+.cartSubtotal {
+  display: flex;
+  padding: 0.5vmax;
+  height: 8vmax;
+  align-items: center;
+  box-sizing: border-box;
+  font: 300 1vmax cursive;
+  justify-content: flex-end;
+  color: rgba(0, 0, 0, 0.753);
+}
+
+.cartGrossProfit {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+}
+
+.cartGrossProfitBox {
+  border-top: 3px solid rgb(26, 25, 25);
+  margin: 1vmax 4vmax;
+  box-sizing: border-box;
+  padding: 2vmax 0;
+  font: 300 1vmax "Roboto";
+  display: flex;
+  justify-content: space-between;
+}
+
+.checkOutBtn {
+  display: flex;
+  justify-content: flex-end;
+}
+.checkOutBtn > button {
+  background-color: rgba(8, 112, 8, 0.781);
+  color: white;
+  border: none;
+  padding: 0.8vmax 4vmax;
+  width: 50%;
+  font: 300 0.8vmax "Roboto";
+  margin: 1vmax 4vmax;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
 .wasteBin {
   color: rgba(0, 0, 0, 0.74);
 }
@@ -506,12 +551,73 @@ ul.summary-list > li:last-child {
 }
 .check:hover {
   /* width: 1300px;
-        height: 300px; */
+          height: 300px; */
   /* border: 3px solid #76eba7; */
   /* background-color: #61f887b3; */
 
   transform: scale(1.021, 1.041);
 }
+
+
+/* *, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+} */
+
+/* body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+} */
+
+table {
+  min-width: 960px;
+  min-height: 500px;
+  margin: 10px auto;
+}
+
+caption {
+  font-size: 4rem;
+  font-weight: 400;
+  padding: 10px 0;
+}
+
+thead th {
+  font-weight: 400;
+  background: #8a97a0;
+  color: #FFF;
+}
+
+tr {
+  background: #f4f7f8;
+  font-size: 2rem;
+  border-bottom: 1px solid #FFF;
+  margin-bottom: 5px;
+}
+
+tr:nth-child(even) {
+  background: #e8eeef;
+}
+
+th, td {
+  text-align: left;
+  padding: 20px;
+  font-weight: 300;
+}
+
+tfoot tr {
+  background: none;
+}
+
+tfoot td {
+  padding: 10px 2px;
+  font-size: 0.8em;
+  font-style: italic;
+  color: #8a97a0;
+}
+
+
+
 
 @media screen and (max-width: 600px) {
   .cartPage {

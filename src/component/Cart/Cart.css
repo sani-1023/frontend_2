@@ -30,14 +30,15 @@
 }
 
 .cartHeader {
-  background-color: rgb(38, 41, 41);
+  background-color: rgb(4, 104, 62);
   width: 90%;
   box-sizing: border-box;
   margin: auto;
   color: rgb(255, 255, 255);
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 14fr 13fr 0fr;
   font: 300 0.7vmax "Roboto";
+  gap: 59px
 }
 .cartHeader > p {
   margin: 10px;
@@ -50,7 +51,7 @@
   width: 90%;
   margin: auto;
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns:  14fr 13fr 0fr;
 }
 
 .cartInput {

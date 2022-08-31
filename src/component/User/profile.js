@@ -1,192 +1,119 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-import './profile.css';
-import profile from '../../images/profile.png';
-import ProfileNavBar from '../User/ProfileNav';
+import { useState, useEffect } from "react";
+import axios from "axios";
+import "./profile.css";
+import profile from "../../images/profile.png";
+import ProfileNavBar from "../User/ProfileNav";
+import Card from "@mui/material/Card";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
+import OrderItem from "../User/UserOrder";
 
 const Profile = () => {
-	const [user, setUser] = useState({});
+  const [user, setUser] = useState({});
+  const [orderItem, setOrderItem] = useState([]);
 
-	const [dataimg, setDataimg] = useState({});
+  const userBackend = {
+    userinfo: "",
+  };
 
-	const [data, setData] = useState([]);
+ 
 
-	const [file, setFile] = useState(null);
-
-	const userBackend = {
-		userinfo: '630625fd6bb34ae62662c024'
-	};
-
-	const handleFileChange = (event) => {
-		setFile(event.target.files);
-		//console.log(file);
-	};
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		const data = new FormData();
-		data.append('file', file[0]);
-		data.append('id',user._id)
-		console.log(data);
-		axios.post('http://localhost:4001/upload', data).then((res) => {
-			console.log(res.statusText);
-		});
-	};
-
-	useEffect(() => {
-		axios.get(`api/v1/me`).then((res) => {
-			setUser(res.data.user);
-			//setDataimg(res.data.allData);
-			
-			//console.log(user)
-		});
-		console.log("hi",  user._id)
-	    userBackend.userinfo = user._id;
-		axios
-			.post('http://localhost:4001/getImg', userBackend)
-			.then((res) => setData(res.data))
-			.catch((err) => console.log(err, 'it has an error'));
-	},[]);
-
-	//console.log("single data",data[0])
+  useEffect(() => {
+    axios.get(`api/v1/me`).then((res) => {
+      setUser(res.data.user); 
+    });
 
 	
+    
+  }, []);
 
-	// useEffect(() => {
-	// 	axios
-	// 		.get('http://localhost:4001/getImg',user)
-	// 		.then((res) => setData(res.data))
-	// 		.catch((err) => console.log(err, 'it has an error'));
-	// });
-	// if(data.length<1)
-	// return <div>HEDA</div>
-	console.log(data)
-	return (
-		<>
-			<ProfileNavBar />
-			<div className='main'>
-				<div className='container bootstrap snippets bootdey'>
-					<div className='row'>
-						<div className='profile-nav col-md-3'>
-							<div className='panel'>
-								<div className='user-heading round'>
-									{/* <a href="#">
-					  <img src={profile} alt="" />
-					</a> */}
+  userBackend.userinfo = user._id;
 
-									{data.map((singleData) => {
-										const base64String = btoa(
-											new Uint8Array(singleData.img.data.data).reduce(function (
-												data,
-												byte
-											) {
-												return data + String.fromCharCode(byte);
-											},
-											'')
-										);
-										return (
-											<img
-												className='profile_pic'
-												alt=''
-												src={`data:image/png;base64,${base64String}`}
-											/>
-										);
-									})}
-									<div>
-										<form>
-											<div className='form-group'>
-												<label htmlFor='file'>Upload File:</label>
-												<input
-													className='form-control-file mb-3'
-													type='file'
-													id='file'
-													accept='.png'
-													multiple
-													onChange={handleFileChange}
-												/>
+  useEffect(() => {
 
-                        <button
-                          className="btn btn-primary mt-3"
-                          onClick={handleSubmit}
-                        >
-                          Upload
-                        </button>
-                      </div>
-                    </form>
+    const func = ()=>{
+      axios
+      .post(`api/v1/userorder`,userBackend)
+      .then((res) => setOrderItem(res.data.userOrder))
+      .catch((err) => console.log(err, "it has an error"));
+    }
 
-                    {/* Display Image Here */}
-                  </div>
+    func();
+  },[orderItem]);
+
+  console.log(orderItem)
+
+  return (
+    <>
+      <ProfileNavBar />
+      <div className="main">
+        <div className="container bootstrap snippets bootdey">
+          <div className="row">
+            <div className="profile-nav col-md-3">
+              <div className="panel">
+                <div className="user-heading round">
+                  <a href="#">
+                    <img src={profile} alt="" />
+                  </a>
+
                   <h1>{user.name}</h1>
                   <p>{user.email}</p>
                 </div>
               </div>
             </div>
-            <div className="profile-info col-md-9">
-              <div className="panel">
-                <div className="bio-graph-heading">Your Profile</div>
-                <div className="panel-body bio-graph-info">
-                  <h1>Basic Information</h1>
-                  <div className="row">
-                    <div className="bio-row">
-                      <p>
-                        <span>Name </span>: {user.name}
-                      </p>
-                    </div>
-                    <div className="bio-row">
-                      <p>
-                        <span>Country </span>: Bangladesh
-                      </p>
-                    </div>
+            <div style={{marginLeft:"43rem"}}>
+              <div className="profile-info col-md-9">
+                <div className="panel">
+                  <div className="panel-body bio-graph-info">
+                    <h1>Basic Information</h1>
+                    <div className="row">
+                      <div className="bio-row">
+                        <p>
+                          <span>Name </span>: {user.name}
+                        </p>
+                      </div>
+                      <div className="bio-row">
+                        <p>
+                          <span>Country </span>: Bangladesh
+                        </p>
+                      </div>
 
-										<div className='bio-row'>
-											<p>
-												<span>Email </span>: {user.email}
-											</p>
-										</div>
-										<div className='bio-row'>
-											<p>
-												<span>Mobile </span>: +88 {user.phone}
-											</p>
-										</div>
-										<div className='bio-row'>
-											<p>
-												<span>Bank Account </span>: {user.bankAccount}
-											</p>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div className='your-order'>your recent orders</div>
-				<div className='card'>
-					<div className='container'>
-						<h4>
-							<b>Order Id:</b>
-							<b> lnsdhlknldknlks</b>
-						</h4>
-						<h4>
-							<b>Product Name:</b>
-							<b> product1</b>
-						</h4>
-						<h4>
-							<b>Quantity:</b>
-							<b> 5</b>
-						</h4>
-						<h4>
-							<b>Total Price:</b>
-							<b> 500/=</b>
-						</h4>
-						<h4>
-							<b>Date:</b>
-							<b> Today</b>
-						</h4>
-					</div>
-				</div>
-			</div>
-		</>
-	);
+                      <div className="bio-row">
+                        <p>
+                          <span>Email </span>: {user.email}
+                        </p>
+                      </div>
+                      <div className="bio-row">
+                        <p>
+                          <span>Mobile </span>: +88 {user.phone}
+                        </p>
+                      </div>
+                      <div className="bio-row">
+                        <p>
+                          <span>Bank Account </span>: {user.bankAccount}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="your-order">your recent orders</div>
+		<div className="cartPage">
+          {orderItem &&
+            orderItem.map((item, key) => (
+              <div className="check" key={item._id}>
+                <OrderItem item={item} />
+              </div>
+            ))}
+        </div>	
+      </div>
+    </>
+  );
 };
 
 export default Profile;

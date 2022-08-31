@@ -63,7 +63,7 @@ const Payment = () => {
       .post(`api/v1/usertransaction`, transactionInfo)
       .then(async (res) => {
         alert("Order is confirmed...Payment will be deduced soon");
-        navigate("/");
+        //navigate("/home");
       })
       .catch((e) => {
         alert(e.response.data.message);

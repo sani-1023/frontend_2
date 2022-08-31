@@ -1,7 +1,12 @@
 .banner {
-  background: #b92b27; /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #b92b27, #1565c0); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #b92b27, #1565c0); 
+  /* background: #b92b27; /* fallback for old browsers */
+  /* background: -webkit-linear-gradient(to right, #b92b27, #1565c0); Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #b92b27, #1565c0);  */ 
+
+  background-image:url(/src/images/e-commerce_bg.jpg); 
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;  
   height: 100vmin;
   display: flex;
   flex-direction: column;

@@ -15,6 +15,9 @@ import LoginIcon from '@mui/icons-material/Login';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
 import HomeIcon from '@mui/icons-material/Home';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
+import LocalShippingIcon from '@mui/icons-material/LocalShipping';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 
 const styles = (theme) => ({
   list: {
@@ -38,10 +41,10 @@ const DrawerComponent = (props) => {
       
     >
       
-      <List style={{backgroundColor:"#b6f5ff"}}>
+      <List >
            <h1 style={{fontFamily:"italic" ,marginLeft:"1rem"}}>Ecommerce 🛍</h1>
            <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-            <ListItem button  onClick={()=> navigate('/')}>
+            <ListItem button  onClick={()=> navigate('/home')}>
             <ListItemIcon>
               <HomeIcon /> 
             </ListItemIcon>
@@ -50,7 +53,7 @@ const DrawerComponent = (props) => {
            </div>
           
            <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-            <ListItem button  onClick={()=> navigate('/')}>
+            <ListItem button  onClick={()=> navigate('/profile')}>
             <ListItemIcon>
               <AccountCircleIcon /> 
             </ListItemIcon>
@@ -58,7 +61,7 @@ const DrawerComponent = (props) => {
           </ListItem>
            </div>
           <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-            <ListItem button  onClick={()=> navigate('/login')}>
+            <ListItem button  onClick={()=> navigate('/')}>
             <ListItemIcon>
               <HowToRegIcon /> 
             </ListItemIcon>
@@ -66,19 +69,11 @@ const DrawerComponent = (props) => {
           </ListItem>
           </div>
           <div style={{marginTop:"2rem",marginBottom:"1rem"}}>
-            <ListItem button  onClick={()=> navigate('/login')}>
+            <ListItem button  onClick={()=> navigate('/')}>
             <ListItemIcon>
               <LoginIcon /> 
             </ListItemIcon>
             <ListItemText primary="Log in" />
-          </ListItem>
-          </div>
-          <div style={{marginTop:"2rem",marginBottom:"2rem"}}>
-            <ListItem button  onClick={()=> navigate('/orders')}>
-            <ListItemIcon>
-              <ShoppingBagIcon /> 
-            </ListItemIcon>
-            <ListItemText primary="Orders" />
           </ListItem>
           </div>
           
@@ -88,6 +83,33 @@ const DrawerComponent = (props) => {
             </ListItemIcon>
             <ListItemText primary="Cart" />
           </ListItem>
+
+          <div style={{marginTop:"2rem",marginBottom:"2rem"}}>
+            <ListItem button  onClick={()=> navigate('/admin')}>
+            <ListItemIcon>
+              <AdminPanelSettingsIcon /> 
+            </ListItemIcon>
+            <ListItemText primary="Admin" />
+          </ListItem>
+          </div>
+
+          <div style={{marginTop:"2rem",marginBottom:"2rem"}}>
+            <ListItem button  onClick={()=> navigate('/supplier')}>
+            <ListItemIcon>
+              <LocalShippingIcon /> 
+            </ListItemIcon>
+            <ListItemText primary="Supplier" />
+          </ListItem>
+          </div>
+
+          <div style={{marginTop:"2rem",marginBottom:"2rem"}}>
+            <ListItem button  onClick={()=> navigate('/bankinfo')}>
+            <ListItemIcon>
+              <AccountBalanceIcon /> 
+            </ListItemIcon>
+            <ListItemText primary="Bank Info" />
+          </ListItem>
+          </div>
         
       </List>
       {/* <Divider /> */}

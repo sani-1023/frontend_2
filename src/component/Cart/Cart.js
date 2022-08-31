@@ -17,7 +17,7 @@ const Cart = () => {
   const increase = (id, quantity, stock) => {
     const q = quantity + 1;
     if (stock <= quantity) {
-      return;
+      return; 
     }
 
     dispatch(addItemsToCart(id, q));
@@ -50,7 +50,7 @@ const Cart = () => {
         {cartItems.length === 0 ? (
           <div className="emptyCart">
             <p>No Products in Cart</p>
-            <Link to="/"> Find Products</Link>
+            <Link to="/home"> Find Products</Link>
           </div>
         ) : (
           <Fragment>

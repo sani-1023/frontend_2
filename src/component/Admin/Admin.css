@@ -32,29 +32,9 @@
   text-align: center
 }
 
-.cartHeader {
-  background-color: rgb(38, 41, 41);
-  width: 90%;
-  box-sizing: border-box;
-  margin: auto;
-  color: rgb(255, 255, 255);
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
-  font: 300 0.7vmax "Roboto";
-}
-.cartHeader > p {
-  margin: 10px;
-}
-.cartHeader > p:last-child {
-  text-align: end;
-}
 
-.cartContainer {
-  width: 90%;
-  margin: auto;
-  display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
-}
+
+
 
 .cartInput {
   display: flex;
