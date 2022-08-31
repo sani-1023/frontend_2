@@ -26,7 +26,7 @@ const Profile = () => {
 		event.preventDefault();
 		const data = new FormData();
 		data.append('file', file[0]);
-		data.append('id',"630625fd6bb34ae62662c024")
+		data.append('id',user._id)
 		console.log(data);
 		axios.post('http://localhost:4001/upload', data).then((res) => {
 			console.log(res.statusText);
@@ -40,12 +40,12 @@ const Profile = () => {
 			
 			//console.log(user)
 		});
-		//console.log("hi",  user._id)
-	    // userBackend.userinfo = user._id;
-		// axios
-		// 	.post('http://localhost:4001/getImg', userBackend)
-		// 	.then((res) => setData(res.data))
-		// 	.catch((err) => console.log(err, 'it has an error'));
+		console.log("hi",  user._id)
+	    userBackend.userinfo = user._id;
+		axios
+			.post('http://localhost:4001/getImg', userBackend)
+			.then((res) => setData(res.data))
+			.catch((err) => console.log(err, 'it has an error'));
 	},[]);
 
 	//console.log("single data",data[0])
@@ -58,6 +58,9 @@ const Profile = () => {
 	// 		.then((res) => setData(res.data))
 	// 		.catch((err) => console.log(err, 'it has an error'));
 	// });
+	// if(data.length<1)
+	// return <div>HEDA</div>
+	console.log(data)
 	return (
 		<>
 			<ProfileNavBar />
