@@ -19,7 +19,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const [bankAccount, setBankAccount] = useState("");
-  const [secretKey, setSecretKey] = useState(""); 
+  const [secretKey, setSecretKey] = useState("");
 
   // setTotalPrice(orderInfo.totalPrice);
   // const [loginPassword, setLoginPassword] = useState("");
@@ -76,10 +76,10 @@ const Payment = () => {
 
       <Fragment>
         <MetaData title="Payment" />
-        <CheckoutSteps activeStep={2} />
+        {/* <CheckoutSteps activeStep={2} /> */}
         <div className="paymentContainer">
           <form className="paymentForm" onSubmit={(e) => submitHandler(e)}>
-            <Typography>Card Info</Typography>
+            <Typography>Bank Info</Typography>
             <div>
               <CreditCardIcon />
               <input
@@ -87,10 +87,6 @@ const Payment = () => {
                 placeholder="Bank-account"
                 onChange={(e) => setBankAccount(e.target.value)}
               />
-            </div>
-            <div>
-              <EventIcon />
-              <input className="paymentInput" placeholder="Date" />
             </div>
             <div>
               <VpnKeyIcon />

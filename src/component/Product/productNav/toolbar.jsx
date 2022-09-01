@@ -18,7 +18,6 @@ import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
 import image from "../../../images/online-shopping.png"
-import { Navigate, useNavigate } from "react-router-dom";
 
 const styles = (theme) => ({
   grow: {
@@ -54,8 +53,6 @@ const styles = (theme) => ({
 });
 
 const ToolbarComponent = (props) => {
-
-  const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(false);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(false);
 
@@ -117,7 +114,7 @@ const ToolbarComponent = (props) => {
         >
           <AccountCircle  />
         </IconButton>
-        <p onClick={navigate('/profile')}>Profile</p>
+        <p>Profile</p>
       </MenuItem>
     </Menu>
   );

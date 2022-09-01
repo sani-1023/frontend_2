@@ -28,8 +28,8 @@ const Main = styled.div`
 `;
 
 const BackgroundBox = styled.div`
-  background-color: #ff;
-  height: 63vh;
+  background-color: #ff794d;
+  height: 65vh;
   width: 60%;
   display: flex;
   justify-content: center;

@@ -50,7 +50,7 @@ const Shipping = () => {
    
     <Fragment>
       <MetaData title="Shipping Details" />
-      <CheckoutSteps activeStep={0} />
+      {/* <CheckoutSteps activeStep={0} /> */}
 
       <div className="shippingContainer">
         <div className="shippingBox">
@@ -72,7 +72,7 @@ const Shipping = () => {
               />
             </div>
 
-            <div>
+            {/* <div>
               <LocationCityIcon />
               <input
                 type="text"
@@ -92,7 +92,7 @@ const Shipping = () => {
                 value={pinCode}
                 onChange={(e) => setPinCode(e.target.value)}
               />
-            </div>
+            </div> */}
 
             <div>
               <PhoneIcon />

@@ -38,7 +38,7 @@ const ConfirmOrder = () => {
 
   const totalPrice = subtotal + tax + shippingCharges;
 
-  const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
+  const address = `${shippingInfo.address}, ${shippingInfo.country}`;
 
   //const address = "demo1";
   const proceedToPayment = () => {
@@ -60,7 +60,7 @@ const ConfirmOrder = () => {
     <Fragment>
       
       <MetaData title="Confirm Order" />
-      <CheckoutSteps activeStep={1} />
+      {/* <CheckoutSteps activeStep={1} /> */}
       <div className="confirmOrderPage">
         <div>
           <div className="confirmshippingArea">
@@ -113,7 +113,7 @@ const ConfirmOrder = () => {
                 <span>{shippingCharges}/=</span>
               </div>
               <div>
-                <p>GST:</p>
+                <p>TAX:</p>
                 <span>{tax}/=</span>
               </div>
             </div>

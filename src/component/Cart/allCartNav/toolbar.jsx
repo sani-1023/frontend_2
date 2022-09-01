@@ -78,17 +78,19 @@ const ToolbarComponent = (props) => {
     setMobileMoreAnchorEl(null);
   };
 
-  const logout = () => {
-         alert("logout sucessful");
+  // async function logout() {
+  //        console.log("logout started");
 
-      //   axios.get(`/api/v1/logout`).then((res) => {
-      //     alert(res.message);
-      // });
+  //       axios.get(`/api/v1/logout`).then((res) => {
+  //         alert(res.message);
+  //         navigate("/");
+  //     });
 
-      navigate("/")
-      setAnchorEl(null);
-      setMobileMoreAnchorEl(null); 
-    }
+  //     setAnchorEl(null);
+  //     setMobileMoreAnchorEl(null);
+
+    
+  //   }
 
   const { classes } = props;
 
@@ -105,7 +107,7 @@ const ToolbarComponent = (props) => {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem  onClick = {logout}>Log out</MenuItem>
+      {/* <MenuItem  onClick = {logout}>Log out</MenuItem> */}
     </Menu>
   );
 

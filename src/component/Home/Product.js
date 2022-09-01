@@ -4,9 +4,6 @@ import ReactStars from "react-rating-stars-component";
 import image from "../../images/macbook.jpg";
 
 
-
-
-
 const Product = ({ product }) => {
 
   
