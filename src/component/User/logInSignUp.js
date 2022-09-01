@@ -359,9 +359,9 @@ function Formcomponent() {
               value={bankAccount}
               onChange={registerDataChange}
             />
-            <Link href="#" onClick={handleClick}>
+            {/* <Link href="#" onClick={handleClick}>
               Already have an Account?
-            </Link>
+            </Link> */}
             <Button onClick={registerSubmit}>Sign Up</Button>
           </Form>
           <Box1 clicked={click} />
