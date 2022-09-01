@@ -19,7 +19,7 @@ const Payment = () => {
   const navigate = useNavigate();
 
   const [bankAccount, setBankAccount] = useState("");
-  const [secretKey, setSecretKey] = useState("");
+  const [secretKey, setSecretKey] = useState(""); 
 
   // setTotalPrice(orderInfo.totalPrice);
   // const [loginPassword, setLoginPassword] = useState("");
@@ -63,7 +63,7 @@ const Payment = () => {
       .post(`api/v1/usertransaction`, transactionInfo)
       .then(async (res) => {
         alert("Order is confirmed...Payment will be deduced soon");
-        //navigate("/home");
+        navigate("/profile");
       })
       .catch((e) => {
         alert(e.response.data.message);
